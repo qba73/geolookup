@@ -90,3 +90,5 @@ ENV/
 
 
 venv-geo/
+*.csv
+
