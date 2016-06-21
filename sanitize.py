@@ -6,7 +6,7 @@ import os
 import sys
 
 
-FIELDNAMES = ['Registration Number', 'Premises Name', 'Address', 'Classification', 'Total Number Rooms']
+FIELDNAMES = ['Registration Number', 'Premises Name', 'Address', 'Classification', 'Total Number Rooms', 'Lat', 'Lng']
 
 
 def make_address(row):
