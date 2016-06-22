@@ -35,11 +35,11 @@ def construct_row(row):
     return row_out
 
 
-def main(file_in, file_out):
-    with open(file_in, 'rb') as csvfile:
+def main(argv):
+    with open(argv[1], 'rb') as csvfile:
         hotel_reader = csv.DictReader(csvfile, delimiter=',')
 
-        with open(file_out, 'wb') as csv_out:
+        with open(argv[2], 'wb') as csv_out:
             fieldnames = FIELDNAMES
             hotel_writer = csv.DictWriter(csv_out, fieldnames=fieldnames)
             hotel_writer.writeheader()
@@ -53,5 +53,9 @@ if __name__=="__main__":
     if len(sys.argv) < 3:
         sys.exit("Usage: {} <file_in.csv> <file_out.csv>".format(sys.argv[0]))
 
-    sys.exit(main(sys.argv[1], sys.argv[2]))
+    if not os.path.exists(sys.argv[1]):
+        sys.exit("Error: {} file was not found!".format(sys.argv[1]))
+
+
+    sys.exit(main(sys.argv))
 
