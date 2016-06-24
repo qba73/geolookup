@@ -90,8 +90,7 @@ def transform(file_in, file_out):
                 r = send_geo_request(lookup_phrase)
                 gdata = extract_data(r)
                 new_row = construct_row_from_google_response(row, gdata)
-                hotel_writer.writerow(new_row) 
-
+                hotel_writer.writerow(new_row)
 
 
 def main():
@@ -99,16 +98,17 @@ def main():
     1. open incsv
     2. for each row:
         - try to get google
-
-
-    """
+    """ 
     pass
 
 
+def send_request(address):
+    pass
+
 
 if __name__=="__main__":
-    if len(sys.argv < 3):
-        sys.exit("Usage: {} <sanitized_file_in.csv>, <file_out.csv>".format(sys.argv[0]))
-
-    sys.exit(main(sys.argv[1], sys.argv[2]))
-
+    #if len(sys.argv < 3):
+    #    sys.exit("Usage: {} <sanitized_file_in.csv>, <file_out.csv>".format(sys.argv[0]))
+    #
+    #sys.exit(main(sys.argv[1], sys.argv[2]))
+    send_request()
