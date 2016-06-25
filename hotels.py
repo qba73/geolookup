@@ -72,10 +72,11 @@ def transform(file_in, file_out):
 
             for row in hotel_reader:
                 address = make_lookup_phrase(row)
-                print("Google lookup phrase: {}".format(address))
+                #print("Google lookup phrase: {}".format(address))
                 latlng = getlatlng(address)       # request to google geo text search
                 new_row = build_row(row, latlng)
                 hotel_writer.writerow(new_row)
+                pprint(new_row)
 
 
 def main(argv):
