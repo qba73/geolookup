@@ -15,13 +15,12 @@ ENCODING = 'iso-8859-1'
 
 def make_lookup_phrase(row):
     """Return full name and address for google geo api text search."""
-    #add1, add2 = map(row.get, ('Premises Name', 'Address'))
     address_text = "{} {}".format(row[1], row[2])
     return address_text
 
 
 def call_google(address):
-    """Return lat lng of the requested address."""
+    """Return a dict with extracted fields from google response."""
     parameters = {'key': API_KEY, 'query': address}
     base = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
     try:
@@ -39,6 +38,7 @@ def call_google(address):
 
 
 def build_row(row, gdata):
+    """Return a list of fields for csv writer."""
     lat = gdata.get('lat')
     lng = gdata.get('lng')
     gname = gdata.get('gname')
@@ -60,7 +60,7 @@ def build_row(row, gdata):
 
 
 def transform(file_in, file_out):
-    """Creates a new csv file with added lat lng columns."""
+    """Creates a new csv file with added google name, address and lat lng columns."""
     with open(file_in, newline='', encoding=ENCODING) as csvfile:
         hotel_reader = csv.reader(csvfile, delimiter=',')
         next(hotel_reader)  #  bypass column names from original csv file
@@ -75,12 +75,10 @@ def transform(file_in, file_out):
 
             for row in hotel_reader:
                 address = make_lookup_phrase(row)
-                #print("Google lookup phrase: {}".format(address))
-                #gdata = call_google(address)       # request to google geo text search
-                gdata = {'gname': 'Google Test Name', 'gaddress': 'Google Test address', 'lat': 1.0000, 'lng': 2.0000}
+                gdata = call_google(address)       # request to google geo text search
                 new_row = build_row(row, gdata)
                 hotel_writer.writerow(new_row)
-                pprint(new_row)
+                print(new_row)
 
 
 def main(argv):
