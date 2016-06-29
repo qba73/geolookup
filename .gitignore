@@ -90,5 +90,6 @@ ENV/
 
 
 venv-geo/
+venv-geo3/
 *.csv
 *.sqlite
