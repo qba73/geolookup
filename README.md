@@ -4,13 +4,13 @@ Simple Python utilities for adding positioning information to addresses stored i
 The tool utilizes Google Places API Web Service. In order to use the API it is required to register in google developers program and to generate API key. 
 ## How to configure the environment
 > **Preconditions:**
-> - installed python [virtualenv](https://pypi.python.org/pypi/virtualenv)
+> - installed Python 3 [virtualenv](https://pypi.python.org/pypi/virtualenv)
 > - generated and exported GOOGLE_API_KEY for interaction with [Google Web Services](https://developers.google.com/places/web-service/)
 
 - create and cativate python virtual environment
 ```bash
-$ virtualenv venv-geo
-$ source venv-geo/bin/activate
+$ virtualenv -p python3 venv-geo3
+$ source venv-geo3/bin/activate
 ``` 
 - install dependencies
 ```bash
