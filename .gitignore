@@ -93,3 +93,7 @@ venv-geo/
 venv-geo3/
 *.csv
 *.sqlite
+
+
+.vagrant/
+.idea/
