@@ -92,3 +92,8 @@ ENV/
 venv-geo/
 *.csv
 *.sqlite
+
+
+.idea/
+.vagrant/
+*.iml
