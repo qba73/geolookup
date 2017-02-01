@@ -95,5 +95,6 @@ venv-geo3/
 *.sqlite
 
 
-.vagrant/
 .idea/
+.vagrant/
+*.iml
