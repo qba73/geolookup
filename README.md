@@ -9,12 +9,12 @@ The tool utilizes Google Places API Web Service. In order to use the API it is r
 
 - create and cativate python virtual environment
 ```bash
-$ virtualenv -p python3 venv-geo3
+$ python3 -m venv venv-geo3
 $ source venv-geo3/bin/activate
 ``` 
 - install dependencies
 ```bash
-$ pip install -r requirements.txt
+$ pip install -rU requirements.txt
 ```
 ## Preparing data
 Structure of the original CSV file:
